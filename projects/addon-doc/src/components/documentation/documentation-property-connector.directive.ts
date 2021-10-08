@@ -32,6 +32,9 @@ export class TuiDocDocumentationPropertyConnectorDirective<T>
     documentationPropertyType = '';
 
     @Input()
+    documentationPropertyDefaultValue: T | null = null;
+
+    @Input()
     documentationPropertyValue: T | null = null;
 
     @Input()

@@ -5,6 +5,7 @@
         <th class="tui-table__th tui-table__th_first t-cell t-cell_prop">
             {{texts[2]}}
         </th>
+        <td *ngIf="shouldShowDefaults" class="tui-table__th">{{texts[5]}}</td>
         <td class="tui-table__th">{{type}}</td>
         <td
             *ngIf="showValues && !isAPI"
@@ -41,6 +42,14 @@
             <ng-container
                 *ngTemplateOutlet="propertyConnector.template"
             ></ng-container>
+        </td>
+        <td
+            *ngIf="shouldShowDefaults"
+            class="tui-table__td tui-table__td_align_center t-cell"
+        >
+            <code *ngIf="propertyConnector.documentationPropertyDefaultValue"
+                >{{propertyConnector.documentationPropertyDefaultValue}}</code
+            >
         </td>
         <td class="tui-table__td tui-table__td_align_center t-cell">
             <span class="type">

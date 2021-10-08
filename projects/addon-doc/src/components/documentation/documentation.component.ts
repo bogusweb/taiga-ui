@@ -45,7 +45,7 @@ export class TuiDocDocumentationComponent implements AfterContentInit {
     constructor(
         @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
         @Inject(TUI_DOC_DOCUMENTATION_TEXTS)
-        readonly texts: [string, string, string, string, string],
+        readonly texts: [string, string, string, string, string, string],
     ) {}
 
     ngAfterContentInit() {
@@ -55,6 +55,18 @@ export class TuiDocDocumentationComponent implements AfterContentInit {
                 watch(this.changeDetectorRef),
             )
             .subscribe();
+    }
+
+    get shouldShowDefaults(): boolean {
+        return (
+            this.isAPI &&
+            this.propertiesConnectors
+                .map(
+                    propertyConnector =>
+                        propertyConnector.documentationPropertyDefaultValue !== null,
+                )
+                .includes(true)
+        );
     }
 
     get type(): string {

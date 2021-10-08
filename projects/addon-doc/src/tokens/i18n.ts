@@ -24,7 +24,7 @@ export const TUI_DOC_DEMO_TEXTS = new InjectionToken<[string, string, string]>(
  * ]
  */
 export const TUI_DOC_DOCUMENTATION_TEXTS = new InjectionToken<
-    [string, string, string, string, string]
+    [string, string, string, string, string, string]
 >('tui-doc-documentation i18n texts', {
     factory: () => [
         'Argument',
@@ -32,6 +32,7 @@ export const TUI_DOC_DOCUMENTATION_TEXTS = new InjectionToken<
         'Name and description',
         'Value',
         'Learn about our dynamic templates from ',
+        'Default',
     ],
 });
 
